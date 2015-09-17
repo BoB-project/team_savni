@@ -16,6 +16,7 @@ def usage():
  -f [file extension]	: Find all extension
  -t [Find Function]		: getenv Function, Find argument "QUERY_STRING" on Address
  -c [Check File]		: Check strip,Endian,Achitecture
+ -p [Parsing Parameter] : Parsing Parameter in path
 	 """
 	sys.exit(0)
 ##################################
@@ -76,6 +77,10 @@ def main():
 			print "MIPS"
 		else:
 			print "else Achitecture"
+	elif option in "-p":
+		path = sys.argv[2]
+		parsing = os.system("strings %s | grep \"URL=\" > result.txt" % path)
+
 
 
 	else :
